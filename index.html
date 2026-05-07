@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Anuj Sharma, Software Quality Engineer at Motorola Solutions. Automation, security engineering, and DevOps specialist securing mission-critical public safety systems."/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='Arial,sans-serif' font-weight='700' fill='%234F46E5'%3EA%3C/text%3E%3C/svg%3E"/>
+<title>Anuj Sharma | Software Quality Engineer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#918fa1",
+                    "surface-container-low": "#1b1b24",
+                    "surface-container-highest": "#35343e",
+                    "error": "#ffb4ab",
+                    "inverse-on-surface": "#302f39",
+                    "on-surface": "#e4e1ee",
+                    "primary-fixed": "#e2dfff",
+                    "surface-tint": "#c3c0ff",
+                    "on-primary-fixed": "#0f0069",
+                    "outline-variant": "#464555",
+                    "on-error": "#690005",
+                    "on-background": "#e4e1ee",
+                    "tertiary": "#b7c8e1",
+                    "surface-container-lowest": "#0e0d16",
+                    "surface-bright": "#393842",
+                    "secondary": "#c6c6c7",
+                    "surface-container-high": "#2a2933",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "inverse-primary": "#4d44e3",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#454747",
+                    "primary-container": "#4f46e5",
+                    "on-primary-container": "#dad7ff",
+                    "tertiary-container": "#516177",
+                    "surface-container": "#1f1f28",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "secondary-container": "#454747",
+                    "surface-dim": "#13121b",
+                    "on-tertiary": "#213145",
+                    "on-tertiary-container": "#ccdcf7",
+                    "background": "#13121b",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "primary": "#c3c0ff",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "on-surface-variant": "#c7c4d8",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "inverse-surface": "#e4e1ee",
+                    "on-primary": "#1d00a5",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-secondary": "#2f3131",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface": "#13121b",
+                    "tertiary-fixed": "#d3e4fe",
+                    "surface-variant": "#35343e",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "section-gap": "120px",
+                    "card-padding": "32px",
+                    "container-max": "1200px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "h3": ["Space Grotesk"],
+                    "h1": ["Space Grotesk"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Space Grotesk"],
+                    "h2": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        :root {
+            --bg: #070B14;
+            --bg-soft: #0C1322;
+            --accent: #00FF9C;           /* terminal green = automation/CI pass */
+            --accent-dim: rgba(0,255,156,0.6);
+            --accent-cyan: #22D3EE;      /* pentest/security cyan */
+            --danger: #FF4D6D;           /* CVE / alert red */
+            --ink: #E6EDF3;
+            --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--ink);
+            scroll-behavior: smooth;
+            background-image:
+                radial-gradient(circle at 20% 0%, rgba(0,255,156,0.06), transparent 45%),
+                radial-gradient(circle at 80% 40%, rgba(34,211,238,0.05), transparent 45%),
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: auto, auto, 48px 48px, 48px 48px;
+        }
+        /* Shift the default Tailwind "primary" tokens to our new accent so existing classes pick it up */
+        .text-primary, .hover\:text-primary:hover { color: var(--accent) !important; }
+        .bg-primary, .bg-primary-container { background-color: var(--accent) !important; color: #001a10 !important; }
+        .bg-primary-container.text-on-primary-container, .bg-primary-container.text-white { color: #001a10 !important; }
+        .border-primary, .border-l-primary { border-color: var(--accent) !important; }
+        .bg-primary\/10 { background-color: rgba(0,255,156,0.1) !important; }
+        .bg-primary\/20 { background-color: rgba(0,255,156,0.15) !important; }
+        .border-primary\/20 { border-color: rgba(0,255,156,0.25) !important; }
+        .font-h1 { letter-spacing: -0.02em; }
+
+        .glass-card {
+            background: rgba(12, 19, 34, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 255, 156, 0.08);
+            position: relative;
+        }
+        .glass-card:hover {
+            background: rgba(12, 19, 34, 0.85);
+            border-color: rgba(0, 255, 156, 0.35);
+            box-shadow: 0 0 24px rgba(0, 255, 156, 0.08), inset 0 0 0 1px rgba(0,255,156,0.12);
+        }
+        /* Terminal-style corner ticks — only on cards that opt in */
+        .glass-card.has-ticks::before, .glass-card.has-ticks::after {
+            content: '';
+            position: absolute;
+            width: 10px; height: 10px;
+            border-color: rgba(0,255,156,0.5);
+            border-style: solid;
+            border-width: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        .glass-card.has-ticks::before { top: 6px; left: 6px; border-top-width: 1.5px; border-left-width: 1.5px; }
+        .glass-card.has-ticks::after { bottom: 6px; right: 6px; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+        .glass-card.has-ticks:hover::before, .glass-card.has-ticks:hover::after { opacity: 1; }
+
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(180deg, transparent, rgba(0,255,156,0.03));
+            border-top: 1px solid rgba(0,255,156,0.12);
+            margin-top: 48px;
+        }
+        .footer-link {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            color: rgba(230,237,243,0.7);
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        .footer-link:hover { color: var(--accent); }
+        .footer-link::before { content: '['; color: var(--accent); opacity: 0; margin-right: 2px; transition: opacity 0.2s ease; }
+        .footer-link::after  { content: ']'; color: var(--accent); opacity: 0; margin-left: 2px;  transition: opacity 0.2s ease; }
+        .footer-link:hover::before, .footer-link:hover::after { opacity: 1; }
+
+        /* Header nav links: same bracket reveal as footer, using translate so layout doesn't jump */
+        .nav-link { position: relative; }
+        .nav-link::before,
+        .nav-link::after {
+            color: var(--accent);
+            opacity: 0;
+            display: inline-block;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+        .nav-link::before {
+            content: '[';
+            margin-right: 4px;
+            transform: translateX(6px);
+        }
+        .nav-link::after {
+            content: ']';
+            margin-left: 4px;
+            transform: translateX(-6px);
+        }
+        .nav-link:hover::before,
+        .nav-link:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Skill pills now read as mono code tokens */
+        [class*="rounded-full"][class*="text-primary"][class*="border-primary"] {
+            font-family: var(--mono) !important;
+            letter-spacing: 0.02em;
+        }
+        /* Career Journey timeline */
+        .timeline-spine-wrap {
+            position: relative;
+        }
+        .timeline-spine {
+            position: absolute;
+            top: 12px;
+            bottom: 12px;
+            left: 15px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-cyan) 70%, rgba(34,211,238,0.2));
+            box-shadow: 0 0 12px rgba(0,255,156,0.35);
+            border-radius: 2px;
+            pointer-events: none;
+        }
+        .timeline-item { padding-left: 0; }
+        .timeline-dot {
+            position: absolute;
+            top: 6px;
+            left: -34px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid rgba(0,255,156,0.45);
+            box-shadow: 0 0 0 4px var(--bg);
+        }
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+            background: rgba(0,255,156,0.25);
+        }
+        .timeline-dot-active {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--bg), 0 0 14px rgba(0,255,156,0.6);
+        }
+        .timeline-dot-active::after {
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+            animation: pulse 2.2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.85); }
+        }
+        /* Stat numbers get a soft glow */
+        .font-h2.text-h2.text-primary {
+            text-shadow: 0 0 18px rgba(0,255,156,0.35);
+            font-family: var(--mono);
+        }
+        /* Nav logo in terminal style */
+        header .font-h3.font-bold { font-family: var(--mono); letter-spacing: 0.08em; }
+        header .font-h3.font-bold::before { content: '> '; color: var(--accent); opacity: 0.8; }
+
+        /* Section heading underline tick */
+        section h2 + div.w-20 { background: linear-gradient(90deg, var(--accent), var(--accent-cyan)) !important; }
+
+        /* Selection */
+        ::selection { background: rgba(0,255,156,0.35); color: #001a10; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Typewriter caret */
+        .type-caret {
+            display: inline-block;
+            width: 10px;
+            height: 1em;
+            vertical-align: text-bottom;
+            margin-left: 4px;
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(0,255,156,0.7);
+            animation: caret-blink 1s step-end infinite;
+        }
+        @keyframes caret-blink {
+            0%, 50%   { opacity: 1; }
+            50.01%, 100% { opacity: 0; }
+        }
+        /* Custom follower cursor (hides on touch devices) */
+        @media (hover: hover) and (pointer: fine) {
+            body { cursor: none; }
+            a, button, [role="button"], input, textarea, select { cursor: none; }
+            .cursor-dot, .cursor-ring {
+                position: fixed;
+                top: 0; left: 0;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate3d(-50%, -50%, 0);
+                will-change: transform;
+            }
+            .cursor-dot {
+                width: 6px; height: 6px;
+                background: var(--accent);
+                border-radius: 50%;
+                box-shadow: 0 0 10px rgba(0,255,156,0.6);
+                transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+            }
+            .cursor-ring {
+                width: 36px; height: 36px;
+                border: 1.5px solid rgba(0,255,156,0.45);
+                border-radius: 50%;
+                transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+            }
+            .cursor-hovering .cursor-dot {
+                width: 0; height: 0;
+            }
+            .cursor-hovering .cursor-ring {
+                width: 56px; height: 56px;
+                border-color: rgba(0,255,156,0.9);
+                background: rgba(0,255,156,0.1);
+            }
+        }
+        /* Reveal-on-scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 w-full z-50 bg-surface/30 backdrop-blur-lg border-b border-outline-variant/10 shadow-[0_0_20px_rgba(79,70,229,0.05)]">
+<nav class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter h-20">
+<div class="font-h3 text-h3 font-bold tracking-tight text-primary dark:text-primary">ANUJ SHARMA</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#about">About</a>
+<a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#skills">Skills</a>
+<a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#experience">Experience</a>
+<a class="nav-link font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#contact">Contact</a>
+<a href="#contact" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps text-label-caps scale-95 active:scale-90 transition-transform duration-200 hover:shadow-[0_0_20px_rgba(79,70,229,0.5)]">Get in Touch</a>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex flex-col justify-center items-center text-center px-gutter overflow-hidden py-section-gap">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 via-transparent to-tertiary-container/10 z-0"></div>
+<div class="relative z-10 max-w-[1000px] mx-auto">
+<h1 class="font-h1 text-[64px] md:text-[80px] leading-tight mb-4 text-on-surface">Anuj Sharma</h1>
+<p class="font-h3 text-h3 text-primary mb-6 tracking-wide min-h-[1.6em]"><span id="typer"></span><span class="type-caret" aria-hidden="true"></span></p>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-10">Innovation-driven Software Quality Engineer re-engineering quality infrastructure at Motorola Solutions, moving from manual validation to high-velocity BDD frameworks and CI/CD automation. I bridge the gap between functional testing and security engineering, turning shipping fast and shipping safe into the same question.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center mb-16">
+<a class="bg-primary-container text-white px-10 py-4 rounded-xl font-label-caps text-label-caps hover:shadow-[0_0_25px_rgba(79,70,229,0.4)] transition-all duration-300" href="#experience">View My Work</a>
+<a class="glass-card text-on-surface px-10 py-4 rounded-xl font-label-caps text-label-caps transition-all duration-300" href="#contact">Get In Touch</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-outline-variant/20 pt-12">
+<div class="flex flex-col">
+<span class="font-h2 text-h2 text-primary">520+</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Production Commits</span>
+</div>
+<div class="flex flex-col">
+<span class="font-h2 text-h2 text-primary">7 Critical</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">CVEs Triaged &amp; Fixed</span>
+</div>
+<div class="flex flex-col">
+<span class="font-h2 text-h2 text-primary">90%</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Automation Time Saved</span>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="max-w-[1200px] mx-auto px-gutter py-section-gap" id="about">
+<div class="grid md:grid-cols-12 gap-16 items-center">
+<div class="md:col-span-5 relative group">
+<div class="absolute -inset-2 bg-gradient-to-tr from-primary-container to-tertiary-container rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+<div class="relative bg-surface-container rounded-2xl overflow-hidden aspect-[4/5]">
+<img alt="Anuj Sharma" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" src="profile.jpg"/>
+</div>
+</div>
+<div class="md:col-span-7">
+<h2 class="font-h2 text-h2 mb-6">Securing the Future of Public Safety</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        As a Software Quality Engineer at Motorola Solutions, I bridge the gap between development speed and mission-critical reliability. My expertise lies at the intersection of automation engineering and cybersecurity, ensuring that software used by emergency services globally is not just functional, but impenetrable. I specialize in building scalable BDD frameworks, CI/CD orchestration, and vulnerability research.
+                    </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-card p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-caps text-label-caps">Technical Leadership</span>
+</div>
+<div class="glass-card p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+<span class="font-label-caps text-label-caps">Security Champion</span>
+</div>
+<div class="glass-card p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-label-caps text-label-caps">DevOps Advocate</span>
+</div>
+<div class="glass-card p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+<span class="font-label-caps text-label-caps">Engineering Mentor</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Grid -->
+<section class="bg-surface-dim/50 py-section-gap" id="skills">
+<div class="max-w-[1200px] mx-auto px-gutter">
+<div class="mb-16 text-center">
+<h2 class="font-h2 text-h2 mb-4">Core Competencies</h2>
+<div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Test Automation -->
+<div class="glass-card p-card-padding rounded-2xl flex flex-col h-full">
+<span class="material-symbols-outlined text-[40px] text-primary mb-6" data-icon="automation">automation</span>
+<h3 class="font-h3 text-h3 mb-4">Test Automation</h3>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">C# (.NET)</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Reqnroll (BDD)</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Appium</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Selenium</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Allure Reporting</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Auth Token Automation</span>
+</div>
+</div>
+<!-- DevOps -->
+<div class="glass-card p-card-padding rounded-2xl flex flex-col h-full">
+<span class="material-symbols-outlined text-[40px] text-primary mb-6" data-icon="terminal">terminal</span>
+<h3 class="font-h3 text-h3 mb-4">DevOps &amp; CI/CD</h3>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">GitHub Actions</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">YAML Pipelines</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">HeadSpin Cloud</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">SMTP/Slack Observability</span>
+</div>
+</div>
+<!-- Security -->
+<div class="glass-card p-card-padding rounded-2xl flex flex-col h-full">
+<span class="material-symbols-outlined text-[40px] text-primary mb-6" data-icon="policy">policy</span>
+<h3 class="font-h3 text-h3 mb-4">Security</h3>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">CVE Triaging</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">SQLi/XSS Testing</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Kali Linux</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Wireshark</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Pentesting</span>
+</div>
+</div>
+<!-- Development -->
+<div class="glass-card p-card-padding rounded-2xl flex flex-col h-full">
+<span class="material-symbols-outlined text-[40px] text-primary mb-6" data-icon="code">code</span>
+<h3 class="font-h3 text-h3 mb-4">Development</h3>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Java</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">C++</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Python</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">REST APIs</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">MVC / JUnit</span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-[10px] border border-primary/20">Git</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Capabilities (Bento) -->
+<section class="max-w-[1200px] mx-auto px-gutter py-section-gap">
+<h2 class="font-h2 text-h2 mb-12 text-center">Strategic Impact</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="glass-card p-card-padding rounded-2xl">
+<span class="text-primary font-h3 mb-4 block">01</span>
+<h4 class="font-h3 text-h3 mb-2">Technical Leadership</h4>
+<p class="text-on-surface-variant">Guiding automation strategies and defining quality standards for enterprise-grade public safety applications.</p>
+</div>
+<div class="glass-card p-card-padding rounded-2xl">
+<span class="text-primary font-h3 mb-4 block">02</span>
+<h4 class="font-h3 text-h3 mb-2">Cross-Functional Collaboration</h4>
+<p class="text-on-surface-variant">Seamlessly integrating QA workflows with Dev and Ops to eliminate silos and accelerate delivery cycles.</p>
+</div>
+<div class="glass-card p-card-padding rounded-2xl">
+<span class="text-primary font-h3 mb-4 block">03</span>
+<h4 class="font-h3 text-h3 mb-2">Mentorship</h4>
+<p class="text-on-surface-variant">Empowering junior engineers through knowledge sharing on automation best practices and secure coding.</p>
+</div>
+<div class="glass-card p-card-padding rounded-2xl">
+<span class="text-primary font-h3 mb-4 block">04</span>
+<h4 class="font-h3 text-h3 mb-2">Strategic Problem Solving</h4>
+<p class="text-on-surface-variant">Architecting long-term solutions for complex quality challenges using a first-principles engineering approach.</p>
+</div>
+</div>
+</section>
+<!-- Experience Timeline -->
+<section class="pt-40 pb-section-gap bg-surface-container-lowest" id="experience">
+<div class="max-w-[1200px] mx-auto px-gutter">
+<h2 class="font-h2 text-h2 mb-24 text-center">Career Journey</h2>
+<div class="relative max-w-4xl mx-auto pl-10 timeline-spine-wrap">
+<div class="timeline-spine"></div>
+<!-- Motorola -->
+<div class="mb-16 relative timeline-item">
+<div class="timeline-dot timeline-dot-active"></div>
+<div class="glass-card p-card-padding pt-12 rounded-2xl">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+<h3 class="font-h3 text-h3">Software Quality Engineer</h3>
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-3 py-1 rounded-lg">June 2023 - Present</span>
+</div>
+<p class="font-body-md font-bold text-on-surface mb-4">Motorola Solutions</p>
+<ul class="space-y-3 text-on-surface-variant">
+<li class="flex gap-3"><span class="text-primary">•</span> Spearheading framework migration to Reqnroll BDD and Allure Reporting, reducing test maintenance by 30%.</li>
+<li class="flex gap-3"><span class="text-primary">•</span> Architected headless C# Auth automation enabling programmatic state resets, reducing manual setup time by 90%.</li>
+<li class="flex gap-3"><span class="text-primary">•</span> Triaged and patched CVSS 9.9 vulnerabilities; identified and remediated 7 critical iOS risks via self-initiated audits.</li>
+<li class="flex gap-3"><span class="text-primary">•</span> Serving as Primary Quality Authority for Australian Policing Agency releases, ensuring production stability.</li>
+<li class="flex gap-3"><span class="text-primary">•</span> Delivered 520+ commits driving major overhauls including HeadSpin Cloud device-farm migration.</li>
+<li class="flex gap-3"><span class="text-primary">•</span> Built resilient GitHub Actions pipelines with automated cleanup and SMTP/Slack observability for real-time app health.</li>
+<li class="flex gap-3"><span class="text-primary">•</span> Standardized GitHub Copilot usage across the QE team with shared instruction sets to accelerate scripting efficiency.</li>
+</ul>
+</div>
+</div>
+<!-- Intern -->
+<div class="relative timeline-item">
+<div class="timeline-dot"></div>
+<div class="glass-card p-card-padding pt-12 rounded-2xl">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+<h3 class="font-h3 text-h3">Cyber Security Intern</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-highest px-3 py-1 rounded-lg">Aug - Sep 2021</span>
+</div>
+<p class="font-body-md font-bold text-on-surface mb-4">Association for Computing Machinery (ACM)</p>
+<p class="text-on-surface-variant mb-4">Modelled and simulated cyber security attacks ethically, designed algorithms for spoofing attacks, and analyzed malware, backdoors, and interceptors, culminating in an IEEE publication on cyber resilience.</p>
+<a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-primary hover:underline" href="https://ieeexplore.ieee.org/document/10116554" rel="noopener" target="_blank"><span class="material-symbols-outlined text-[16px]">description</span> Read IEEE Publication →</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education -->
+<section class="max-w-[1200px] mx-auto px-gutter py-section-gap">
+<div class="glass-card p-card-padding rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 border-l-8 border-l-primary">
+<div>
+<h2 class="font-h2 text-h2 mb-2">Education</h2>
+<h3 class="font-h3 text-h3 text-primary mb-2">Bachelor of Software Engineering</h3>
+<p class="text-body-lg text-on-surface-variant">RMIT University Australia | 2020 to 2024</p>
+</div>
+<div class="bg-surface-container-highest p-6 rounded-2xl">
+<span class="material-symbols-outlined text-[64px] text-primary" data-icon="school">school</span>
+</div>
+</div>
+</section>
+<!-- References -->
+<section class="bg-surface-dim py-section-gap">
+<div class="max-w-[1200px] mx-auto px-gutter">
+<h2 class="font-h2 text-h2 mb-12 text-center">References</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="glass-card p-card-padding rounded-2xl text-center">
+<div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</div>
+<h4 class="font-h3 text-h3 mb-1">Rakesh Goud</h4>
+<p class="font-label-caps text-label-caps text-primary mb-3">Senior Test Lead · Motorola Solutions</p>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors break-all" href="mailto:rakesh.goud@motorolasolutions.com">rakesh.goud@motorolasolutions.com</a>
+</div>
+<div class="glass-card p-card-padding rounded-2xl text-center">
+<div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</div>
+<h4 class="font-h3 text-h3 mb-1">Thana Venagobal</h4>
+<p class="font-label-caps text-label-caps text-primary mb-3">Head of Engineering &amp; Deployment · Motorola Solutions</p>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors break-all" href="mailto:thana@motorolasolutions.com">thana@motorolasolutions.com</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact -->
+<section class="max-w-[1200px] mx-auto px-gutter py-section-gap" id="contact">
+<h2 class="font-h2 text-h2 mb-12 text-center">Let's Connect</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<a class="glass-card p-card-padding rounded-2xl text-center transition-transform hover:-translate-y-2" href="mailto:anujsharma030701@gmail.com">
+<span class="material-symbols-outlined text-primary text-[40px] mb-4" data-icon="mail">mail</span>
+<h4 class="font-label-caps text-label-caps mb-2">Email</h4>
+<p class="font-body-md text-on-surface truncate">anujsharma030701@gmail.com</p>
+</a>
+<a class="glass-card p-card-padding rounded-2xl text-center transition-transform hover:-translate-y-2" href="tel:+61481446969">
+<span class="material-symbols-outlined text-primary text-[40px] mb-4" data-icon="phone">phone</span>
+<h4 class="font-label-caps text-label-caps mb-2">Phone</h4>
+<p class="font-body-md text-on-surface">+61 481 446 969</p>
+</a>
+<a class="glass-card p-card-padding rounded-2xl text-center transition-transform hover:-translate-y-2" href="https://linkedin.com/in/anujsharma3" target="_blank">
+<span class="material-symbols-outlined text-primary text-[40px] mb-4" data-icon="link">link</span>
+<h4 class="font-label-caps text-label-caps mb-2">LinkedIn</h4>
+<p class="font-body-md text-on-surface">anujsharma3</p>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="site-footer w-full">
+<div class="max-w-[1200px] mx-auto px-gutter py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80">© 2026 Anuj Sharma &middot; Built with precision &amp; <span class="text-primary">caffeine</span>.</p>
+<div class="flex items-center gap-6">
+<a class="footer-link" href="https://www.linkedin.com/in/anujsharma3/" rel="noopener" target="_blank">LinkedIn</a>
+<a class="footer-link" href="mailto:anujsharma030701@gmail.com">Email</a>
+<a class="footer-link" href="https://ieeexplore.ieee.org/document/10116554" rel="noopener" target="_blank">IEEE</a>
+</div>
+<p class="font-mono-sm text-on-surface-variant opacity-60 text-[11px]" style="font-family: var(--mono);"><span class="text-primary">$</span> status: <span class="text-primary">ok</span></p>
+</div>
+</footer>
+<!-- Custom cursor elements -->
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<script>
+    // Typewriter: type, hold, delete, next phrase, loop.
+    (function () {
+        const el = document.getElementById('typer');
+        if (!el) return;
+        const phrases = [
+            'Software Quality Engineer',
+            'Automation Specialist',
+            'Security Advocate',
+            'BDD Framework Architect',
+            'DevOps Advocate'
+        ];
+        const typeSpeed = 70;
+        const deleteSpeed = 35;
+        const holdAfterType = 1400;
+        const holdAfterDelete = 250;
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let deleting = false;
+
+        function tick() {
+            const current = phrases[phraseIdx];
+            if (!deleting) {
+                charIdx++;
+                el.textContent = current.slice(0, charIdx);
+                if (charIdx === current.length) {
+                    deleting = true;
+                    return setTimeout(tick, holdAfterType);
+                }
+                return setTimeout(tick, typeSpeed);
+            }
+            charIdx--;
+            el.textContent = current.slice(0, charIdx);
+            if (charIdx === 0) {
+                deleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                return setTimeout(tick, holdAfterDelete);
+            }
+            setTimeout(tick, deleteSpeed);
+        }
+        tick();
+    })();
+
+    // Custom follower cursor (skipped on touch devices by CSS).
+    (function () {
+        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+        const dot = document.querySelector('.cursor-dot');
+        const ring = document.querySelector('.cursor-ring');
+        if (!dot || !ring) return;
+
+        let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+        let rx = mx, ry = my;
+
+        window.addEventListener('mousemove', (e) => {
+            mx = e.clientX; my = e.clientY;
+            dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+        });
+
+        function animateRing() {
+            rx += (mx - rx) * 0.18;
+            ry += (my - ry) * 0.18;
+            ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        // Expand on interactive elements
+        const hoverSel = 'a, button, [role="button"], input, textarea, select, .glass-card';
+        document.querySelectorAll(hoverSel).forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hovering'));
+        });
+
+        // Hide when leaving viewport
+        document.addEventListener('mouseleave', () => { dot.style.opacity = ring.style.opacity = '0'; });
+        document.addEventListener('mouseenter', () => { dot.style.opacity = ring.style.opacity = '1'; });
+    })();
+
+    // Add corner ticks only to designated small cards
+    (function () {
+        document.querySelectorAll('#skills .glass-card').forEach(c => c.classList.add('has-ticks'));
+        const tickedSections = new Set(['Strategic Impact', 'Education', 'References', "Let's Connect"]);
+        document.querySelectorAll('section').forEach(sec => {
+            const h = sec.querySelector('h2');
+            if (h && tickedSections.has(h.textContent.trim())) {
+                sec.querySelectorAll('.glass-card').forEach(c => c.classList.add('has-ticks'));
+            }
+        });
+    })();
+
+    // Reveal-on-scroll via IntersectionObserver
+    (function () {
+        const targets = document.querySelectorAll('section, .glass-card');
+        targets.forEach(t => t.classList.add('reveal'));
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        targets.forEach(t => io.observe(t));
+    })();
+</script>
+</body></html>
