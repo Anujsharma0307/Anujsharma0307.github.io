@@ -108,10 +108,12 @@
             --ink: #E6EDF3;
             --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
         }
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+        section[id] { scroll-margin-top: 96px; }  /* Offset for sticky nav so headings don't hide under it */
         body {
             background-color: var(--bg);
             color: var(--ink);
-            scroll-behavior: smooth;
             background-image:
                 radial-gradient(circle at 20% 0%, rgba(0,255,156,0.06), transparent 45%),
                 radial-gradient(circle at 80% 40%, rgba(34,211,238,0.05), transparent 45%),
@@ -318,6 +320,42 @@
                 background: rgba(0,255,156,0.1);
             }
         }
+        /* Back-to-top button */
+        .back-to-top {
+            position: fixed;
+            right: 28px;
+            bottom: 28px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg-soft);
+            border: 1.5px solid rgba(0,255,156,0.4);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            z-index: 90;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+        }
+        .back-to-top.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            background: rgba(0,255,156,0.12);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0,255,156,0.35);
+        }
+        .back-to-top svg { width: 18px; height: 18px; }
+        @media (prefers-reduced-motion: reduce) {
+            .back-to-top { transition: opacity 0.2s; transform: none; }
+        }
+
         /* Reveal-on-scroll */
         .reveal {
             opacity: 0;
@@ -660,6 +698,10 @@
 <!-- Custom cursor elements -->
 <div class="cursor-ring" aria-hidden="true"></div>
 <div class="cursor-dot" aria-hidden="true"></div>
+<!-- Back-to-top -->
+<button id="back-to-top" class="back-to-top" aria-label="Back to top" type="button">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 <script>
     // Typewriter: type, hold, delete, next phrase, loop.
     (function () {
@@ -748,6 +790,26 @@
                 sec.querySelectorAll('.glass-card').forEach(c => c.classList.add('has-ticks'));
             }
         });
+    })();
+
+    // Back-to-top button
+    (function () {
+        const btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        const TOGGLE_AFTER = 500;
+        let ticking = false;
+        function update() {
+            btn.classList.toggle('is-visible', window.scrollY > TOGGLE_AFTER);
+            ticking = false;
+        }
+        window.addEventListener('scroll', () => {
+            if (!ticking) { requestAnimationFrame(update); ticking = true; }
+        }, { passive: true });
+        btn.addEventListener('click', () => {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        });
+        update();
     })();
 
     // Reveal-on-scroll via IntersectionObserver
